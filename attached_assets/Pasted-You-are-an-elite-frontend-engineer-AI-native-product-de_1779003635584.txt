@@ -1,0 +1,335 @@
+You are an elite frontend engineer, AI-native product designer, and award-winning futuristic UI/UX specialist.
+
+Your task is to create a visually stunning futuristic portfolio website for a Product-Oriented Full Stack Developer transitioning into Product Management and AI Product Strategy.
+
+The website must feel like:
+
+Apple + Linear + Tesla + Stripe inspired
+Futuristic luxury SaaS platform
+AI-native personal brand website
+Modern startup innovation dashboard
+Premium interactive digital experience from 2030
+
+IMPORTANT:
+
+Prioritize visual wow factor and immersive UX.
+Avoid generic developer portfolio layouts.
+The website should look EXPENSIVE, MODERN, and INTELLIGENT.
+Focus heavily on futuristic aesthetics, smooth animations, premium typography, and advanced UI interactions.
+
+TECH STACK REQUIREMENTS:
+
+Use ONLY:
+HTML
+CSS
+JavaScript
+Everything must remain inside ONE SINGLE HTML FILE.
+Use internal <style> and <script> sections only.
+Do NOT use React, Tailwind, Bootstrap, or frameworks.
+Font Awesome CDN is allowed.
+Google Fonts are allowed.
+Code must be production-quality and clean.
+
+DESIGN STYLE:
+
+Futuristic dark theme
+Glassmorphism
+Animated gradients
+Neon glow effects
+Premium shadows
+Smooth transitions
+Micro-interactions
+Luxury UI spacing
+Cyber-luxury aesthetics
+Dashboard-inspired sections
+Modern product design feel
+
+PROFILE INFORMATION
+
+Name:
+Akshit Pathak
+
+Professional Positioning:
+
+Product-Oriented Full Stack Developer
+AI Product Management Enthusiast
+Product Strategy & UX Thinker
+Enterprise Application Specialist
+Full Stack Engineer
+Product Discovery Practitioner
+
+CONTACT:
+
+Email: akshit.pathak77@gmail.com
+Phone: +91 8971652799
+LinkedIn
+Portfolio Link
+
+SUMMARY CONTEXT:
+Product-oriented Full Stack Developer with 6+ years of experience delivering enterprise applications across automotive and logistics domains. Skilled in stakeholder collaboration, Agile delivery, requirement gathering, workflow optimization, product discovery, feature prioritization, AI-powered case studies, and API-driven platform development.
+
+WEBSITE STRUCTURE
+
+HERO SECTION
+Create an ultra-premium futuristic hero section with:
+Large animated typography
+Typing animation for rotating titles
+Animated gradient background
+Glassmorphism intro panel
+Floating particles/blobs
+Premium CTA buttons:
+View Resume
+View Projects
+Contact Me
+Animated futuristic UI elements
+AI-inspired motion graphics
+Elegant entrance animations
+
+Hero messaging should emphasize:
+
+Product + Engineering mindset
+AI Product Strategy
+Enterprise systems expertise
+Product discovery
+UX-driven problem solving
+Modern AI-native thinking
+ABOUT SECTION
+Create a premium executive-style About section highlighting:
+6+ years experience
+Enterprise application delivery
+Product thinking
+User research
+Agile methodologies
+Stakeholder management
+Cross-functional collaboration
+Requirement-driven feature implementation
+Product discovery frameworks
+AI product strategy
+
+Tone should feel:
+
+Strategic
+Intelligent
+Analytical
+Product-focused
+Startup-oriented
+Modern
+EXPERIENCE SECTION
+Create futuristic animated timeline/cards for:
+
+Infosys Ltd. — Technology Analyst
+2022 – Present
+
+Amazin Automation Solutions — Java Developer
+2019 – 2021
+
+GetMyUni — SEO & Content Intern
+2019
+
+Each card should include:
+
+measurable impact
+enterprise-scale operations
+business improvements
+workflow optimization
+stakeholder collaboration
+technical problem solving
+operational stability contributions
+
+Highlight major achievements including:
+
+70% reduction in manual allocation effort
+450 → 60 production incident reduction
+Zero SLA breaches
+Nationwide Dealer Management System optimization
+Collaboration with Japan stakeholders
+
+Design style:
+
+glowing hover effects
+futuristic dashboard cards
+animated timeline
+premium transitions
+glassmorphism UI
+PROJECTS SECTION
+Create visually stunning premium case-study cards for:
+
+Google Photos — Product Improvement Case Study
+
+Include:
+
+user interviews
+user pain points
+smart filtering concepts
+ICE prioritization
+PRD creation
+user journeys
+competitor analysis
+retrieval optimization
+
+Nykaa — AI Beauty Look Generator
+
+Include:
+
+AI-powered recommendation flows
+customer journey optimization
+beauty commerce personalization
+conversion optimization
+contextual recommendations
+PRD development
+AI-assisted shopping experiences
+
+This section should feel like:
+
+futuristic product innovation lab
+AI startup showcase
+PM portfolio dashboard
+next-gen SaaS case studies
+
+Add:
+
+animated project cards
+hover overlays
+glowing effects
+premium UI interactions
+SKILLS SECTION
+Create futuristic animated skill cards for:
+
+PRODUCT SKILLS:
+
+Product Discovery
+User Research
+Feature Prioritization
+Sprint Planning
+Stakeholder Management
+Product Strategy
+PRD Creation
+Wireframing
+Competitor Analysis
+
+TECHNICAL SKILLS:
+
+Java
+Spring Boot
+React
+REST APIs
+AWS
+SQL
+MySQL
+IBM DB2
+System Integrations
+
+TOOLS:
+
+Jira
+Figma
+Tableau
+Power BI
+Git
+Canva
+Google Analytics
+
+Add:
+
+animated progress bars
+dashboard-style metrics
+glowing skill pills
+glassmorphism cards
+futuristic radar visuals
+PRODUCT THINKING / AI STRATEGY SECTION
+Create a premium section focused on:
+AI-native product thinking
+User-centric innovation
+Product strategy
+Data-driven decisions
+UX optimization
+Business impact thinking
+AI commerce experiences
+Product experimentation
+
+Visually this section should feel like:
+
+futuristic AI operations center
+next-generation PM dashboard
+startup strategy platform
+EDUCATION & CERTIFICATION SECTION
+Create elegant futuristic cards for:
+
+PES Institute of Technology Bangalore
+B.Tech – Computer Science & Engineering
+
+HelloPM
+Certification in AI Product Management
+
+CONTACT SECTION
+Create a premium futuristic contact section with:
+glassmorphism panels
+animated buttons
+glowing borders
+LinkedIn integration
+modern form design
+elegant interactions
+
+ADVANCED UI FEATURES
+
+Add:
+
+Cursor glow effect
+Animated particles
+Floating blobs
+Scroll reveal animations
+Smooth scrolling
+Active navbar highlighting
+Dynamic navbar blur
+Parallax scrolling
+Neon border effects
+Premium loading screen
+Smooth hover animations
+Back-to-top floating button
+AI-inspired motion graphics
+Interactive UI micro-effects
+
+TYPOGRAPHY
+Use premium fonts:
+
+Space Grotesk
+Outfit
+Inter
+Sora
+
+COLOR PALETTE
+Use:
+
+Deep black
+Charcoal
+Electric blue
+Cyan glows
+Violet gradients
+Metallic gray
+Neon accents
+
+The overall experience should feel:
+
+Futuristic
+AI-native
+Premium
+Product-focused
+Intelligent
+Startup-ready
+Executive-quality
+
+VERY IMPORTANT:
+
+Make the portfolio feel world-class.
+Focus heavily on UI polish and futuristic aesthetics.
+Ensure smooth animations and responsiveness.
+Avoid generic portfolio layouts.
+Make it visually memorable and immersive.
+Balance engineering credibility with product-thinking storytelling.
+
+FINAL OUTPUT:
+Return ONLY the complete production-ready single HTML file code with embedded CSS and JavaScript.
+No explanations.
+No markdown.
+No summaries.
+Only the final code.
