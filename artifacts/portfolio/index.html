@@ -1,19 +1,1055 @@
 <!DOCTYPE html>
-<html lang="en" class="dark" style="height: 100%">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <meta name="description" content="Akshit Pathak — Software Engineer" />
-    <meta property="og:title" content="Akshit Pathak | Software Engineer" />
-    <meta property="og:description" content="Portfolio of Akshit Pathak, a software engineer building clean, modern, and high-performance applications." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Akshit Pathak | Software Engineer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  </head>
-  <body style="height: 100%; margin: 0" class="bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary">
-    <div id="root" style="height: 100%"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshit Pathak — Product-Oriented Full Stack Developer</title>
+  <meta name="description" content="Product-Oriented Full Stack Developer with 6+ years of experience. AI Product Strategy, Enterprise Systems, UX-driven problem solving." />
+  <meta property="og:title" content="Akshit Pathak — Portfolio" />
+  <meta property="og:description" content="Product-Oriented Full Stack Developer. AI Product Strategy, Enterprise Systems, UX-driven problem solving." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-deep: #030509;
+      --bg-dark: #06090f;
+      --bg-glass: rgba(10, 17, 35, 0.65);
+      --blue: #0ea5e9;
+      --blue-bright: #38bdf8;
+      --cyan: #06b6d4;
+      --cyan-bright: #22d3ee;
+      --violet: #7c3aed;
+      --violet-bright: #a78bfa;
+      --indigo: #4f46e5;
+      --neon-blue: #00d4ff;
+      --neon-cyan: #00ffea;
+      --text-primary: #f0f6ff;
+      --text-secondary: #94a3b8;
+      --text-muted: #475569;
+      --border: rgba(99, 179, 237, 0.10);
+      --border-bright: rgba(56, 189, 248, 0.28);
+      --glow-blue: 0 0 48px rgba(14, 165, 233, 0.28);
+      --glow-violet: 0 0 48px rgba(124, 58, 237, 0.28);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ─── CUSTOM CURSOR ─── */
+    #cur-glow {
+      position: fixed; width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.07) 0%, transparent 70%);
+      pointer-events: none; transform: translate(-50%,-50%); z-index: 9996;
+    }
+    #cur-dot {
+      position: fixed; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--neon-blue); pointer-events: none;
+      transform: translate(-50%,-50%); z-index: 9999;
+      box-shadow: 0 0 14px var(--neon-blue), 0 0 28px rgba(0,212,255,0.4);
+      transition: width .2s, height .2s;
+    }
+    #cur-ring {
+      position: fixed; width: 32px; height: 32px; border-radius: 50%;
+      border: 1.5px solid rgba(0,212,255,0.45); pointer-events: none;
+      transform: translate(-50%,-50%); z-index: 9998;
+      transition: width .2s, height .2s, border-color .2s;
+    }
+
+    /* ─── LOADER ─── */
+    #loader {
+      position: fixed; inset: 0; background: var(--bg-deep); z-index: 99999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+      transition: opacity .7s ease, visibility .7s;
+    }
+    #loader.gone { opacity: 0; visibility: hidden; }
+    .ld-logo {
+      font-family: 'Sora', sans-serif; font-size: 2.2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--neon-blue), var(--violet-bright));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      letter-spacing: -.03em;
+    }
+    .ld-track { width: 220px; height: 2px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .ld-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--blue), var(--neon-cyan)); border-radius: 2px; animation: fillBar 2s ease forwards; }
+    @keyframes fillBar { to { width: 100%; } }
+    .ld-txt { font-size: .68rem; letter-spacing: .3em; color: var(--text-muted); text-transform: uppercase; }
+
+    /* ─── PARTICLES ─── */
+    #pcanvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 22px 48px; display: flex; align-items: center; justify-content: space-between;
+      transition: all .4s ease;
+    }
+    nav.stuck {
+      background: rgba(3,5,9,0.88); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border); padding: 14px 48px;
+      box-shadow: 0 4px 40px rgba(0,0,0,.5);
+    }
+    .nav-logo {
+      font-family: 'Sora', sans-serif; font-size: 1.05rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--neon-blue), var(--violet-bright));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      letter-spacing: -.02em; cursor: pointer; text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      transition: color .3s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+      background: var(--neon-blue); transition: width .3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+    .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      padding: 8px 22px; border-radius: 7px;
+      background: rgba(14,165,233,.1); border: 1px solid rgba(14,165,233,.28);
+      color: var(--blue-bright); font-size: .76rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: all .3s;
+    }
+    .nav-cta:hover { background: rgba(14,165,233,.2); box-shadow: var(--glow-blue); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1001; }
+    .hamburger span { width: 24px; height: 1.5px; background: var(--text-secondary); transition: all .3s; display: block; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      padding: 120px 40px 80px; position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% -15%, rgba(14,165,233,.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 65%, rgba(124,58,237,.12) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(6,182,212,.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(14,165,233,.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(14,165,233,.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 80%);
+    }
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(70px);
+      pointer-events: none; animation: orbDrift 9s ease-in-out infinite;
+    }
+    .orb1 { width: 320px; height: 320px; background: rgba(14,165,233,.09); top: 8%; left: 3%; }
+    .orb2 { width: 240px; height: 240px; background: rgba(124,58,237,.11); top: 25%; right: 8%; animation-delay: 3s; }
+    .orb3 { width: 280px; height: 280px; background: rgba(6,182,212,.07); bottom: 18%; left: 12%; animation-delay: 5.5s; }
+    @keyframes orbDrift { 0%,100% { transform: translateY(0) scale(1); } 33% { transform: translateY(-28px) scale(1.04); } 66% { transform: translateY(14px) scale(.96); } }
+
+    .hero-content { max-width: 920px; text-align: center; position: relative; z-index: 2; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 6px 18px; border-radius: 100px;
+      background: rgba(14,165,233,.07); border: 1px solid rgba(14,165,233,.2);
+      font-size: .7rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--blue-bright); margin-bottom: 36px;
+      animation: fadeDown .8s ease both;
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: pulse 2.2s infinite; }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.75); } }
+
+    .hero-name {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      font-weight: 700; line-height: 1.0; letter-spacing: -.035em; margin-bottom: 20px;
+      background: linear-gradient(140deg, #f0f6ff 0%, #93c5fd 40%, #c4b5fd 80%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      animation: fadeUp .8s .2s ease both;
+    }
+    .hero-titles {
+      font-family: 'Outfit', sans-serif; font-size: clamp(1.05rem, 2.8vw, 1.45rem);
+      font-weight: 400; color: var(--text-secondary); margin-bottom: 30px;
+      height: 2.2em; display: flex; align-items: center; justify-content: center;
+      animation: fadeUp .8s .35s ease both; gap: 6px;
+    }
+    .typing { color: var(--blue-bright); font-weight: 500; border-right: 2px solid var(--neon-blue); padding-right: 3px; animation: blink .85s infinite; }
+    @keyframes blink { 0%,100% { border-color: var(--neon-blue); } 50% { border-color: transparent; } }
+
+    .hero-desc {
+      font-size: 1rem; color: var(--text-secondary); line-height: 1.85;
+      max-width: 640px; margin: 0 auto 52px; animation: fadeUp .8s .5s ease both;
+    }
+    .hero-desc strong { color: var(--text-primary); font-weight: 600; }
+    .hero-ctas {
+      display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap;
+      animation: fadeUp .8s .62s ease both;
+    }
+
+    .btn-primary {
+      padding: 14px 34px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      border: none; color: #fff; font-family: 'Space Grotesk', sans-serif;
+      font-size: .88rem; font-weight: 600; letter-spacing: .04em;
+      cursor: pointer; text-decoration: none; transition: all .3s;
+      box-shadow: 0 0 32px rgba(14,165,233,.22), 0 4px 18px rgba(0,0,0,.45);
+      display: inline-flex; align-items: center; gap: 9px;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 60px rgba(14,165,233,.4), 0 10px 28px rgba(0,0,0,.5); }
+    .btn-outline {
+      padding: 13px 28px; border-radius: 9px; background: transparent;
+      border: 1px solid var(--border-bright); color: var(--text-primary);
+      font-family: 'Space Grotesk', sans-serif; font-size: .88rem; font-weight: 500;
+      letter-spacing: .04em; cursor: pointer; text-decoration: none; transition: all .3s;
+      display: inline-flex; align-items: center; gap: 9px; backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover { background: rgba(14,165,233,.08); border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--glow-blue); }
+
+    .hero-stats {
+      display: flex; align-items: center; justify-content: center; gap: 56px;
+      margin-top: 76px; padding-top: 52px; border-top: 1px solid var(--border);
+      animation: fadeUp .8s .8s ease both; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Sora', sans-serif; font-size: 2.6rem; font-weight: 700; line-height: 1;
+      background: linear-gradient(135deg, var(--neon-blue), var(--cyan-bright));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-lbl { font-size: .7rem; color: var(--text-muted); letter-spacing: .12em; text-transform: uppercase; margin-top: 6px; }
+    .stat-div { width: 1px; height: 44px; background: var(--border); }
+
+    @keyframes fadeDown { from { opacity:0; transform: translateY(-18px); } to { opacity:1; transform: translateY(0); } }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(22px); } to { opacity:1; transform: translateY(0); } }
+
+    /* ─── SECTION SHARED ─── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 44px; }
+    section { position: relative; z-index: 1; }
+    .s-head { text-align: center; margin-bottom: 72px; }
+    .s-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--blue-bright); margin-bottom: 18px;
+    }
+    .s-tag::before, .s-tag::after { content: ''; display: block; width: 26px; height: 1px; background: var(--blue-bright); }
+    .s-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 700; letter-spacing: -.03em;
+      background: linear-gradient(135deg, var(--text-primary) 0%, #93c5fd 60%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 16px;
+    }
+    .s-desc { font-size: .95rem; color: var(--text-secondary); max-width: 520px; margin: 0 auto; line-height: 1.75; }
+
+    /* ─── GLASS CARD BASE ─── */
+    .glass {
+      background: var(--bg-glass); border: 1px solid var(--border);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-radius: 18px; transition: all .4s;
+    }
+    .glass:hover { border-color: var(--border-bright); }
+
+    /* ─── ABOUT ─── */
+    #about { padding: 128px 0; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .about-text { font-family: 'Outfit', sans-serif; font-size: 1.02rem; color: var(--text-secondary); line-height: 1.88; margin-bottom: 22px; }
+    .about-text strong { color: var(--text-primary); font-weight: 600; }
+    .about-pills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+    .about-pill {
+      padding: 7px 15px; border-radius: 100px;
+      background: rgba(14,165,233,.06); border: 1px solid rgba(14,165,233,.16);
+      font-size: .78rem; font-weight: 500; color: var(--blue-bright); transition: all .3s;
+      display: flex; align-items: center; gap: 7px; cursor: default;
+    }
+    .about-pill:hover { background: rgba(14,165,233,.14); border-color: var(--blue); box-shadow: 0 0 18px rgba(14,165,233,.15); }
+    .about-pill i { font-size: .72rem; }
+    .about-cards { display: flex; flex-direction: column; gap: 18px; }
+    .about-card {
+      padding: 24px 26px; position: relative; overflow: hidden;
+    }
+    .about-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--violet)); opacity: 0; transition: opacity .4s;
+    }
+    .about-card:hover { transform: translateY(-5px); box-shadow: var(--glow-blue); }
+    .about-card:hover::before { opacity: 1; }
+    .ac-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(14,165,233,.1); border: 1px solid rgba(14,165,233,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem; color: var(--blue-bright); margin-bottom: 14px;
+    }
+    .about-card h3 { font-size: .98rem; font-weight: 600; margin-bottom: 7px; }
+    .about-card p { font-size: .81rem; color: var(--text-secondary); line-height: 1.6; }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { padding: 128px 0; }
+    .exp-section-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(124,58,237,.06) 0%, transparent 65%); }
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--border) 8%, var(--border) 92%, transparent);
+      transform: translateX(-50%);
+    }
+    .t-row { display: grid; grid-template-columns: 1fr 56px 1fr; gap: 20px; margin-bottom: 52px; align-items: start; }
+    .t-dot-col { display: flex; justify-content: center; align-items: flex-start; padding-top: 32px; }
+    .t-dot {
+      width: 16px; height: 16px; border-radius: 50%; background: var(--blue);
+      border: 3px solid var(--bg-deep); position: relative; z-index: 2;
+      box-shadow: 0 0 20px var(--blue), 0 0 40px rgba(14,165,233,.3);
+    }
+    .exp-card { padding: 28px 30px; }
+    .exp-card:hover { transform: translateY(-5px); box-shadow: 0 0 50px rgba(14,165,233,.1); }
+    .exp-co { font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 7px; }
+    .exp-role { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .exp-date {
+      display: inline-flex; align-items: center; gap: 6px; font-size: .7rem; color: var(--text-muted);
+      padding: 3px 11px; border-radius: 100px; background: rgba(255,255,255,.04); border: 1px solid var(--border);
+    }
+    .live-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: pulse 2s infinite; }
+    .exp-list { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+    .exp-list li { font-size: .82rem; color: var(--text-secondary); line-height: 1.65; padding-left: 17px; position: relative; }
+    .exp-list li::before { content: ''; position: absolute; left: 0; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--blue-bright); }
+    .exp-list li strong { color: var(--blue-bright); }
+    .exp-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .exp-tag {
+      padding: 3px 11px; border-radius: 100px; font-size: .67rem; font-weight: 500;
+      background: rgba(14,165,233,.07); border: 1px solid rgba(14,165,233,.15); color: var(--blue-bright);
+    }
+    .t-empty { display: block; }
+
+    /* ─── PROJECTS ─── */
+    #projects { padding: 128px 0; }
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .proj-card { border-radius: 20px; background: var(--bg-glass); border: 1px solid var(--border); backdrop-filter: blur(20px); overflow: hidden; transition: all .4s; cursor: default; position: relative; }
+    .proj-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(14,165,233,.04) 0%, rgba(124,58,237,.04) 100%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+    .proj-card:hover { border-color: var(--border-bright); transform: translateY(-8px); box-shadow: 0 0 70px rgba(14,165,233,.12), 0 24px 48px rgba(0,0,0,.35); }
+    .proj-card:hover::after { opacity: 1; }
+    .proj-vis {
+      height: 210px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .proj-vis-g { background: linear-gradient(135deg, rgba(14,165,233,.14) 0%, rgba(6,182,212,.09) 50%, rgba(79,70,229,.14) 100%); }
+    .proj-vis-n { background: linear-gradient(135deg, rgba(124,58,237,.14) 0%, rgba(167,139,250,.09) 50%, rgba(236,72,153,.1) 100%); }
+    .proj-float { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 20px; }
+    .mini-badge {
+      padding: 7px 16px; border-radius: 9px;
+      background: rgba(6,9,18,.72); border: 1px solid var(--border);
+      font-size: .72rem; color: var(--text-secondary); backdrop-filter: blur(12px);
+      display: flex; align-items: center; gap: 8px;
+      animation: floatUp 4s ease-in-out infinite;
+    }
+    .mini-badge:nth-child(2) { animation-delay: 1.2s; }
+    .mini-badge:nth-child(3) { animation-delay: 2.4s; }
+    .mb-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    @keyframes floatUp { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    .proj-body { padding: 28px 30px; }
+    .proj-label { font-size: .67rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--violet-bright); margin-bottom: 10px; }
+    .proj-title { font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+    .proj-desc { font-size: .84rem; color: var(--text-secondary); line-height: 1.72; margin-bottom: 18px; }
+    .proj-feats { display: flex; flex-direction: column; gap: 6px; margin-bottom: 20px; }
+    .proj-feat { display: flex; align-items: center; gap: 9px; font-size: .77rem; color: var(--text-secondary); }
+    .proj-feat i { color: var(--cyan-bright); font-size: .68rem; flex-shrink: 0; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .proj-tag {
+      padding: 4px 11px; border-radius: 100px;
+      background: rgba(124,58,237,.09); border: 1px solid rgba(124,58,237,.18);
+      font-size: .67rem; font-weight: 500; color: var(--violet-bright);
+    }
+
+    /* ─── SKILLS ─── */
+    #skills { padding: 128px 0; }
+    .skills-bg-r { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(14,165,233,.06) 0%, transparent 65%); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .skill-cat { padding: 30px 28px; }
+    .sk-head { display: flex; align-items: center; gap: 13px; margin-bottom: 26px; }
+    .sk-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: .88rem;
+    }
+    .sk-icon.b { background: rgba(14,165,233,.14); color: var(--blue-bright); border: 1px solid rgba(14,165,233,.2); }
+    .sk-icon.v { background: rgba(124,58,237,.14); color: var(--violet-bright); border: 1px solid rgba(124,58,237,.2); }
+    .sk-icon.c { background: rgba(6,182,212,.14); color: var(--cyan-bright); border: 1px solid rgba(6,182,212,.2); }
+    .sk-cat-lbl { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .sk-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sp {
+      padding: 6px 14px; border-radius: 100px; font-size: .76rem; font-weight: 500;
+      transition: all .3s; cursor: default;
+    }
+    .sp.b { background: rgba(14,165,233,.08); border: 1px solid rgba(14,165,233,.2); color: #7dd3fc; }
+    .sp.b:hover { background: rgba(14,165,233,.18); border-color: var(--blue); box-shadow: 0 0 18px rgba(14,165,233,.2); }
+    .sp.v { background: rgba(124,58,237,.08); border: 1px solid rgba(124,58,237,.2); color: var(--violet-bright); }
+    .sp.v:hover { background: rgba(124,58,237,.18); border-color: var(--violet); box-shadow: 0 0 18px rgba(124,58,237,.2); }
+    .sp.c { background: rgba(6,182,212,.08); border: 1px solid rgba(6,182,212,.2); color: var(--cyan-bright); }
+    .sp.c:hover { background: rgba(6,182,212,.18); border-color: var(--cyan); box-shadow: 0 0 18px rgba(6,182,212,.2); }
+
+    /* ─── AI STRATEGY ─── */
+    #ai { padding: 128px 0; }
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .ai-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ai-pill {
+      padding: 22px 20px; border-radius: 14px; background: var(--bg-glass);
+      border: 1px solid var(--border); backdrop-filter: blur(14px); transition: all .4s;
+      position: relative; overflow: hidden;
+    }
+    .ai-pill::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; opacity: 0; transition: opacity .4s;
+    }
+    .ai-pill.b1::after { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    .ai-pill.b2::after { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+    .ai-pill.b3::after { background: linear-gradient(90deg, var(--cyan), var(--violet)); }
+    .ai-pill.b4::after { background: linear-gradient(90deg, var(--blue), var(--violet)); }
+    .ai-pill:hover { border-color: var(--border-bright); transform: translateY(-4px); }
+    .ai-pill:hover::after { opacity: 1; }
+    .ai-pill-ic { font-size: 1.5rem; margin-bottom: 12px; }
+    .ai-pill h4 { font-size: .88rem; font-weight: 600; margin-bottom: 7px; }
+    .ai-pill p { font-size: .76rem; color: var(--text-muted); line-height: 1.55; }
+    .ai-right h3 { font-family: 'Sora', sans-serif; font-size: 1.85rem; font-weight: 700; margin-bottom: 22px; line-height: 1.25; }
+    .ai-right p { font-size: .9rem; color: var(--text-secondary); line-height: 1.82; margin-bottom: 16px; }
+    .ai-nums { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 30px; }
+    .ai-num {
+      padding: 18px 16px; border-radius: 12px; text-align: center;
+      background: rgba(14,165,233,.05); border: 1px solid rgba(14,165,233,.1);
+    }
+    .ai-num-val { font-family: 'Sora', sans-serif; font-size: 1.9rem; font-weight: 700; background: linear-gradient(135deg, var(--neon-blue), var(--cyan-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ai-num-lbl { font-size: .67rem; color: var(--text-muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 5px; }
+
+    /* ─── EDUCATION ─── */
+    #education { padding: 128px 0; }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .edu-card { padding: 34px 30px; position: relative; overflow: hidden; }
+    .edu-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0; transition: opacity .4s; }
+    .edu-card.bblue::before { background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    .edu-card.bviolet::before { background: linear-gradient(90deg, var(--violet), var(--blue)); }
+    .edu-card:hover { transform: translateY(-6px); box-shadow: 0 0 50px rgba(14,165,233,.1); }
+    .edu-card:hover::before { opacity: 1; }
+    .edu-ic { font-size: 2rem; margin-bottom: 18px; }
+    .edu-inst { font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--blue-bright); margin-bottom: 8px; }
+    .edu-deg { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+    .edu-meta { font-size: .8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+
+    /* ─── CONTACT ─── */
+    #contact { padding: 128px 0 172px; }
+    .contact-section-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(14,165,233,.07) 0%, transparent 65%); }
+    .contact-wrap { max-width: 720px; margin: 0 auto; text-align: center; }
+    .contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 52px 0; }
+    .c-card {
+      padding: 28px 22px; border-radius: 16px; background: var(--bg-glass);
+      border: 1px solid var(--border); backdrop-filter: blur(20px);
+      transition: all .4s; display: flex; flex-direction: column; align-items: center; gap: 12px;
+      text-decoration: none; cursor: pointer;
+    }
+    .c-card:hover { border-color: var(--border-bright); transform: translateY(-5px); box-shadow: var(--glow-blue); }
+    .c-icon {
+      width: 50px; height: 50px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: transform .3s;
+    }
+    .c-card:hover .c-icon { transform: scale(1.1); }
+    .c-icon.em { background: rgba(14,165,233,.12); color: var(--blue-bright); border: 1px solid rgba(14,165,233,.2); }
+    .c-icon.li { background: rgba(10,102,194,.12); color: #60a5fa; border: 1px solid rgba(10,102,194,.2); }
+    .c-icon.ph { background: rgba(6,182,212,.12); color: var(--cyan-bright); border: 1px solid rgba(6,182,212,.2); }
+    .c-icon.pt { background: rgba(124,58,237,.12); color: var(--violet-bright); border: 1px solid rgba(124,58,237,.2); }
+    .c-lbl { font-size: .67rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); }
+    .c-val { font-size: .87rem; font-weight: 500; color: var(--text-primary); }
+    .contact-btns { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 30px 48px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative; z-index: 1; flex-wrap: wrap; gap: 12px;
+    }
+    .f-left { font-size: .76rem; color: var(--text-muted); }
+    .f-left strong { color: var(--text-secondary); }
+    .f-right { display: flex; gap: 22px; }
+    .f-link { color: var(--text-muted); font-size: .76rem; text-decoration: none; transition: color .3s; }
+    .f-link:hover { color: var(--blue-bright); }
+
+    /* ─── BACK TOP ─── */
+    #btt {
+      position: fixed; bottom: 30px; right: 30px; width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(14,165,233,.1); border: 1px solid rgba(14,165,233,.25); color: var(--blue-bright);
+      font-size: .95rem; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      z-index: 900; transition: all .4s; opacity: 0; transform: translateY(18px);
+      backdrop-filter: blur(12px);
+    }
+    #btt.show { opacity: 1; transform: translateY(0); }
+    #btt:hover { background: rgba(14,165,233,.2); box-shadow: var(--glow-blue); transform: translateY(-3px); }
+
+    /* ─── REVEAL ─── */
+    .rv { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .rvl { opacity: 0; transform: translateX(-28px); transition: opacity .7s ease, transform .7s ease; }
+    .rvr { opacity: 0; transform: translateX(28px); transition: opacity .7s ease, transform .7s ease; }
+    .rv.in, .rvl.in, .rvr.in { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      nav { padding: 16px 24px; }
+      nav.stuck { padding: 12px 24px; }
+      .nav-links { display: none; flex-direction: column; position: fixed; inset: 0; background: rgba(3,5,9,.97); align-items: center; justify-content: center; gap: 44px; z-index: 999; backdrop-filter: blur(24px); }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .hamburger.open span:nth-child(2) { opacity: 0; }
+      .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+      .container { padding: 0 24px; }
+      #hero { padding: 100px 24px 60px; }
+      .hero-stats { gap: 24px; }
+      .stat-div { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .timeline::before { left: 24px; }
+      .t-row { grid-template-columns: 24px 1fr; gap: 18px; }
+      .t-dot-col { justify-content: flex-start; padding-left: 4px; }
+      .t-empty { display: none; }
+      .t-row:nth-child(even) .exp-card { grid-column: 2; grid-row: 1; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; gap: 44px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .contact-cards { grid-template-columns: 1fr 1fr; }
+      footer { padding: 24px; flex-direction: column; text-align: center; }
+      body { cursor: auto; }
+      #cur-dot, #cur-ring, #cur-glow { display: none; }
+    }
+    @media (max-width: 560px) {
+      .ai-pillars { grid-template-columns: 1fr; }
+      .ai-nums { grid-template-columns: 1fr 1fr; }
+      .contact-cards { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cur-glow"></div>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="ld-logo">AP</div>
+  <div class="ld-track"><div class="ld-fill"></div></div>
+  <div class="ld-txt">Initializing Portfolio</div>
+</div>
+
+<!-- PARTICLES -->
+<canvas id="pcanvas"></canvas>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Akshit Pathak</a>
+  <ul class="nav-links" id="navlist">
+    <li><a href="#about" class="nl">About</a></li>
+    <li><a href="#experience" class="nl">Experience</a></li>
+    <li><a href="#projects" class="nl">Projects</a></li>
+    <li><a href="#skills" class="nl">Skills</a></li>
+    <li><a href="#ai" class="nl">AI Strategy</a></li>
+    <li><a href="#contact" class="nl">Contact</a></li>
+  </ul>
+  <a href="mailto:akshit.pathak77@gmail.com" class="nav-cta">Hire Me</a>
+  <div class="hamburger" id="hbg"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span>Open to Product &amp; Strategy Roles</div>
+    <h1 class="hero-name">Akshit Pathak</h1>
+    <div class="hero-titles">
+      <span>I craft&nbsp;</span><span class="typing" id="typer"></span>
+    </div>
+    <p class="hero-desc">
+      <strong>Product-Oriented Full Stack Developer</strong> with 6+ years delivering enterprise-grade systems across automotive and logistics. Blending engineering depth with product intuition, AI strategy, and UX-driven thinking.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary"><i class="fas fa-folder-open"></i> View Projects</a>
+      <a href="mailto:akshit.pathak77@gmail.com" class="btn-outline"><i class="fas fa-envelope"></i> Get in Touch</a>
+      <a href="#experience" class="btn-outline"><i class="fas fa-briefcase"></i> Experience</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num" data-n="6">0</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat-div"></div>
+      <div class="stat"><div class="stat-num" data-n="400">0</div><div class="stat-lbl">Dealerships Served</div></div>
+      <div class="stat-div"></div>
+      <div class="stat"><div class="stat-num" data-n="70">0</div><div class="stat-lbl">% Effort Reduced</div></div>
+      <div class="stat-div"></div>
+      <div class="stat"><div class="stat-num" data-n="2">0</div><div class="stat-lbl">PM Case Studies</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="s-head rv">
+      <div class="s-tag">Who I Am</div>
+      <h2 class="s-title">Product × Engineering × Strategy</h2>
+      <p class="s-desc">Bridging the gap between technical execution and product vision with 6 years of enterprise-scale delivery.</p>
+    </div>
+    <div class="about-grid">
+      <div class="rvl">
+        <p class="about-text">I'm a <strong>Product-Oriented Full Stack Developer</strong> with 6+ years delivering enterprise-grade applications across <strong>automotive and logistics domains</strong>. My work spans the full spectrum — from debugging production incidents at Honda's Dealer Management System to conceptualising AI-powered product features through end-to-end PRDs.</p>
+        <p class="about-text">I think in <strong>user journeys</strong>, build with <strong>engineering discipline</strong>, and communicate through <strong>product storytelling</strong>. Currently transitioning into Product Management with hands-on AI product case studies, ICE frameworks, and competitor analysis.</p>
+        <div class="about-pills">
+          <span class="about-pill"><i class="fas fa-users"></i>Stakeholder Management</span>
+          <span class="about-pill"><i class="fas fa-magnifying-glass"></i>Product Discovery</span>
+          <span class="about-pill"><i class="fas fa-file-lines"></i>PRD Creation</span>
+          <span class="about-pill"><i class="fas fa-rocket"></i>Agile Delivery</span>
+          <span class="about-pill"><i class="fas fa-chart-bar"></i>Feature Prioritization</span>
+          <span class="about-pill"><i class="fas fa-brain"></i>AI Product Strategy</span>
+          <span class="about-pill"><i class="fas fa-pen-ruler"></i>Wireframing</span>
+          <span class="about-pill"><i class="fas fa-handshake"></i>Cross-functional Collab</span>
+        </div>
+      </div>
+      <div class="about-cards rvr">
+        <div class="about-card glass">
+          <div class="ac-icon"><i class="fas fa-car"></i></div>
+          <h3>Enterprise Automotive Systems</h3>
+          <p>Delivered and maintained Honda's nationwide Dealer Management System used by 400+ dealerships — optimising vehicle allocation, dealer ordering, and dispatch workflows at scale.</p>
+        </div>
+        <div class="about-card glass">
+          <div class="ac-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>AI-Native Product Thinking</h3>
+          <p>Completed AI Product Management certification via HelloPM. Built research-driven case studies for Google Photos and Nykaa using ICE scoring and full PRD documentation.</p>
+        </div>
+        <div class="about-card glass">
+          <div class="ac-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Full Stack + Product Fluency</h3>
+          <p>Rare blend of hands-on engineering — Java, Spring Boot, React, REST APIs — paired with product discovery, user research, and UX-driven feature design.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="exp-section-bg"></div>
+  <div class="container">
+    <div class="s-head rv">
+      <div class="s-tag">Career Journey</div>
+      <h2 class="s-title">Professional Experience</h2>
+      <p class="s-desc">Enterprise-scale impact across automotive systems and logistics platforms.</p>
+    </div>
+    <div class="timeline">
+
+      <div class="t-row">
+        <div class="exp-card glass rvl">
+          <div class="exp-co">Infosys Ltd. · Client: Honda Cars India</div>
+          <div class="exp-role">Technology Analyst</div>
+          <div class="exp-date"><span class="live-dot"></span>Feb 2022 — Present · Noida</div>
+          <ul class="exp-list">
+            <li>Reduced manual allocation effort by <strong>~70%</strong> — turnaround from 2–3 hours to ~10 minutes via system-generated allocation.</li>
+            <li>Cut recurring production incidents from <strong>450 → 60</strong> through root cause analysis and permanent fixes across critical workflows.</li>
+            <li>Maintained <strong>zero SLA breaches</strong> throughout tenure by ensuring timely resolution of all critical production issues.</li>
+            <li>Enhanced Honda's nationwide Dealer Management System serving <strong>400+ dealerships</strong>, streamlining vehicle allocation and dispatch.</li>
+            <li>Collaborated with <strong>Japan &amp; on-site stakeholders</strong> for requirement discussions, sprint planning, and UAT coordination.</li>
+            <li>Received client recognition and <strong>on-site appreciation awards</strong> for operational ownership and delivery excellence.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Honda DMS</span><span class="exp-tag">Java</span>
+            <span class="exp-tag">Stakeholder Mgmt</span><span class="exp-tag">Agile</span><span class="exp-tag">Production Support</span>
+          </div>
+        </div>
+        <div class="t-dot-col"><div class="t-dot"></div></div>
+        <div class="t-empty"></div>
+      </div>
+
+      <div class="t-row">
+        <div class="t-empty"></div>
+        <div class="t-dot-col"><div class="t-dot"></div></div>
+        <div class="exp-card glass rvr">
+          <div class="exp-co">Amazin Automation Solutions</div>
+          <div class="exp-role">Java Developer</div>
+          <div class="exp-date">Aug 2019 — Dec 2021 · Gurugram</div>
+          <ul class="exp-list">
+            <li>Developed logistics platform workflows supporting <strong>vehicle tracking</strong>, operational monitoring, and transportation management.</li>
+            <li>Delivered feature enhancements improving <strong>operational usability</strong> across logistics workflows.</li>
+            <li>Implemented system integrations to improve <strong>data flow reliability</strong> across logistics tracking systems.</li>
+            <li>Supported deployment and maintenance on <strong>AWS</strong>, ensuring stable application performance and smooth releases.</li>
+            <li>Contributed cross-functionally including <strong>footwear mockup design</strong> and digital marketing creatives during COVID.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">Java</span><span class="exp-tag">AWS</span>
+            <span class="exp-tag">Logistics Platform</span><span class="exp-tag">System Integration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-row">
+        <div class="exp-card glass rvl" style="max-width:500px">
+          <div class="exp-co">GetMyUni</div>
+          <div class="exp-role">SEO &amp; Content Intern</div>
+          <div class="exp-date">Jan 2019 — Jun 2019 · Bangalore</div>
+          <ul class="exp-list">
+            <li>Optimised website pages using <strong>on-page SEO</strong> and keyword optimization for improved discoverability.</li>
+            <li>Monitored page performance and applied SEO practices to enhance <strong>content reach</strong>.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag">SEO</span><span class="exp-tag">Content Strategy</span>
+          </div>
+        </div>
+        <div class="t-dot-col"><div class="t-dot"></div></div>
+        <div class="t-empty"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="s-head rv">
+      <div class="s-tag">Case Studies</div>
+      <h2 class="s-title">Product Projects</h2>
+      <p class="s-desc">Research-driven, AI-powered product case studies built with real discovery frameworks.</p>
+    </div>
+    <div class="projects-grid">
+
+      <div class="proj-card rvl">
+        <div class="proj-vis proj-vis-g">
+          <div class="proj-float">
+            <div class="mini-badge"><span class="mb-dot" style="background:#0ea5e9"></span>User Research · 15 Interviews</div>
+            <div class="mini-badge"><span class="mb-dot" style="background:#22d3ee"></span>ICE Score · Smart Filters MVP</div>
+            <div class="mini-badge"><span class="mb-dot" style="background:#7c3aed"></span>Competitor Analysis · 3 Apps</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-label">Product Improvement Case Study</div>
+          <div class="proj-title">Google Photos</div>
+          <p class="proj-desc">Identified friction in photo retrieval through user interviews and pain-point mapping. Designed smart filtering concepts to reduce scrolling effort for information-seeking users.</p>
+          <div class="proj-feats">
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>User interviews &amp; surveys — retrieval pain points</div>
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>Competitor analysis — Apple Photos, Amazon Photos</div>
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>ICE framework — Smart Filters, Visual Tags, Retrieval History</div>
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>End-to-end PRD with user stories &amp; success metrics</div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Product Discovery</span><span class="proj-tag">User Research</span>
+            <span class="proj-tag">ICE Framework</span><span class="proj-tag">PRD</span><span class="proj-tag">UX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card rvr">
+        <div class="proj-vis proj-vis-n">
+          <div class="proj-float">
+            <div class="mini-badge"><span class="mb-dot" style="background:#a78bfa"></span>AI Recommendation Flow Mapped</div>
+            <div class="mini-badge"><span class="mb-dot" style="background:#ec4899"></span>Cart Abandonment Pain Points</div>
+            <div class="mini-badge"><span class="mb-dot" style="background:#06b6d4"></span>Commerce Integration · Full PRD</div>
+          </div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-label">AI Product Case Study</div>
+          <div class="proj-title">Nykaa — AI Beauty Look Generator</div>
+          <p class="proj-desc">Conceptualised an AI-powered beauty discovery experience to improve purchase confidence and reduce cart abandonment through personalised, contextual recommendations.</p>
+          <div class="proj-feats">
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>Shade uncertainty &amp; decision fatigue pain points identified</div>
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>User personas &amp; AI-assisted recommendation flows defined</div>
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>Commerce integration with guardrail &amp; engagement metrics</div>
+            <div class="proj-feat"><i class="fas fa-check-circle"></i>Full PRD covering customer journey, edge cases &amp; KPIs</div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">AI Product</span><span class="proj-tag">Commerce</span>
+            <span class="proj-tag">Personalization</span><span class="proj-tag">PRD</span><span class="proj-tag">User Personas</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-bg-r"></div>
+  <div class="container">
+    <div class="s-head rv">
+      <div class="s-tag">Capabilities</div>
+      <h2 class="s-title">Skills &amp; Expertise</h2>
+      <p class="s-desc">A rare blend of product thinking and engineering execution.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat glass rv">
+        <div class="sk-head"><div class="sk-icon b"><i class="fas fa-lightbulb"></i></div><div class="sk-cat-lbl">Product Skills</div></div>
+        <div class="sk-pills">
+          <span class="sp b">Product Discovery</span><span class="sp b">User Research</span>
+          <span class="sp b">Feature Prioritization</span><span class="sp b">Sprint Planning</span>
+          <span class="sp b">Stakeholder Management</span><span class="sp b">Product Strategy</span>
+          <span class="sp b">PRD Creation</span><span class="sp b">Wireframing</span>
+          <span class="sp b">Competitor Analysis</span><span class="sp b">User Segmentation</span>
+          <span class="sp b">Agile / Scrum</span><span class="sp b">Requirement Gathering</span>
+        </div>
+      </div>
+      <div class="skill-cat glass rv" style="transition-delay:.1s">
+        <div class="sk-head"><div class="sk-icon v"><i class="fas fa-code"></i></div><div class="sk-cat-lbl">Technical Skills</div></div>
+        <div class="sk-pills">
+          <span class="sp v">Java</span><span class="sp v">Spring Boot</span>
+          <span class="sp v">React</span><span class="sp v">REST APIs</span>
+          <span class="sp v">AWS</span><span class="sp v">SQL</span>
+          <span class="sp v">MySQL</span><span class="sp v">IBM DB2</span>
+          <span class="sp v">System Integrations</span><span class="sp v">Production Support</span>
+        </div>
+      </div>
+      <div class="skill-cat glass rv" style="transition-delay:.2s">
+        <div class="sk-head"><div class="sk-icon c"><i class="fas fa-wrench"></i></div><div class="sk-cat-lbl">Tools &amp; Platforms</div></div>
+        <div class="sk-pills">
+          <span class="sp c">Jira</span><span class="sp c">Figma</span>
+          <span class="sp c">Tableau</span><span class="sp c">Power BI</span>
+          <span class="sp c">Git</span><span class="sp c">Canva</span>
+          <span class="sp c">Google Analytics</span><span class="sp c">Excel</span>
+          <span class="sp c">CorelDRAW</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI STRATEGY -->
+<section id="ai">
+  <div class="container">
+    <div class="s-head rv">
+      <div class="s-tag">AI × Product</div>
+      <h2 class="s-title">AI Product Strategy</h2>
+      <p class="s-desc">Thinking at the intersection of AI capabilities and user-centric product design.</p>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-pillars rvl">
+        <div class="ai-pill b1">
+          <div class="ai-pill-ic">🧠</div>
+          <h4>AI-Native Thinking</h4>
+          <p>Framing product opportunities through AI capabilities — from recommendation engines to intelligent filtering at scale.</p>
+        </div>
+        <div class="ai-pill b2">
+          <div class="ai-pill-ic">🔍</div>
+          <h4>User-Centric Research</h4>
+          <p>Conducting interviews and surveys to uncover latent pain points before defining any AI solution or feature scope.</p>
+        </div>
+        <div class="ai-pill b3">
+          <div class="ai-pill-ic">📊</div>
+          <h4>Data-Driven Decisions</h4>
+          <p>Using ICE scores, engagement metrics, and conversion data to prioritise AI features with measurable business impact.</p>
+        </div>
+        <div class="ai-pill b4">
+          <div class="ai-pill-ic">⚡</div>
+          <h4>Rapid Experimentation</h4>
+          <p>Defining guardrail metrics and edge cases upfront to enable fast, safe AI product experiments at scale.</p>
+        </div>
+      </div>
+      <div class="ai-right rvr">
+        <h3>Where Product Strategy Meets AI Reality</h3>
+        <p>My approach to AI product strategy isn't theoretical — it's grounded in real discovery work. For the Nykaa AI Beauty Look Generator, I mapped every step from shade uncertainty to purchase confirmation, then defined where AI adds genuine value rather than hype.</p>
+        <p>For Google Photos, I applied the ICE framework to compare Smart Content Filters, Visual Tags, and Retrieval History — ensuring the MVP prioritised user effort reduction over feature complexity.</p>
+        <p>The result: product decisions backed by user evidence, competitive context, and technical feasibility — ready for engineering handoff.</p>
+        <div class="ai-nums">
+          <div class="ai-num"><div class="ai-num-val">2</div><div class="ai-num-lbl">AI Case Studies</div></div>
+          <div class="ai-num"><div class="ai-num-val">ICE</div><div class="ai-num-lbl">Prioritisation Framework</div></div>
+          <div class="ai-num"><div class="ai-num-val">PRD</div><div class="ai-num-lbl">Full Documentation</div></div>
+          <div class="ai-num"><div class="ai-num-val">UX</div><div class="ai-num-lbl">Journey Mapping</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="s-head rv">
+      <div class="s-tag">Academic Background</div>
+      <h2 class="s-title">Education &amp; Certification</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card glass bblue rvl">
+        <div class="edu-ic">🎓</div>
+        <div class="edu-inst">PES Institute of Technology · Bangalore</div>
+        <div class="edu-deg">B.Tech – Computer Science &amp; Engineering</div>
+        <div class="edu-meta"><i class="fas fa-calendar-alt"></i>2015 – 2019</div>
+      </div>
+      <div class="edu-card glass bviolet rvr">
+        <div class="edu-ic">🤖</div>
+        <div class="edu-inst">HelloPM · Online Course</div>
+        <div class="edu-deg">Certification in AI Product Management</div>
+        <div class="edu-meta"><i class="fas fa-calendar-alt"></i>March 2026 &nbsp;·&nbsp; <span style="color:#22c55e;font-weight:600">Completed</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section-bg"></div>
+  <div class="container">
+    <div class="contact-wrap rv">
+      <div class="s-tag" style="justify-content:center">Let's Connect</div>
+      <h2 class="s-title">Open to Product Roles</h2>
+      <p class="s-desc">Looking for opportunities in Product Management, AI Product Strategy, or roles that blend engineering with product thinking.</p>
+      <div class="contact-cards">
+        <a href="mailto:akshit.pathak77@gmail.com" class="c-card">
+          <div class="c-icon em"><i class="fas fa-envelope"></i></div>
+          <div class="c-lbl">Email</div>
+          <div class="c-val">akshit.pathak77@gmail.com</div>
+        </a>
+        <a href="https://www.linkedin.com/in/akshit-pathak" target="_blank" rel="noopener" class="c-card">
+          <div class="c-icon li"><i class="fab fa-linkedin"></i></div>
+          <div class="c-lbl">LinkedIn</div>
+          <div class="c-val">Connect on LinkedIn</div>
+        </a>
+        <a href="tel:+918971652799" class="c-card">
+          <div class="c-icon ph"><i class="fas fa-phone"></i></div>
+          <div class="c-lbl">Phone</div>
+          <div class="c-val">+91 8971652799</div>
+        </a>
+        <a href="#projects" class="c-card">
+          <div class="c-icon pt"><i class="fas fa-folder-open"></i></div>
+          <div class="c-lbl">Case Studies</div>
+          <div class="c-val">View Project Work</div>
+        </a>
+      </div>
+      <div class="contact-btns">
+        <a href="mailto:akshit.pathak77@gmail.com" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Email</a>
+        <a href="https://www.linkedin.com/in/akshit-pathak" target="_blank" rel="noopener" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-left">© 2026 <strong>Akshit Pathak</strong> · Built for the future.</div>
+  <div class="f-right">
+    <a href="#hero" class="f-link">Back to top</a>
+    <a href="mailto:akshit.pathak77@gmail.com" class="f-link">Email</a>
+    <a href="https://www.linkedin.com/in/akshit-pathak" target="_blank" rel="noopener" class="f-link">LinkedIn</a>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+/* LOADER */
+window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').classList.add('gone'), 2100));
+
+/* CURSOR */
+const cdot = document.getElementById('cur-dot');
+const cring = document.getElementById('cur-ring');
+const cglow = document.getElementById('cur-glow');
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => {
+  mx=e.clientX; my=e.clientY;
+  cdot.style.left=mx+'px'; cdot.style.top=my+'px';
+  cglow.style.left=mx+'px'; cglow.style.top=my+'px';
+});
+(function animRing() {
+  rx+=(mx-rx)*0.11; ry+=(my-ry)*0.11;
+  cring.style.left=rx+'px'; cring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a,button,.proj-card,.exp-card,.about-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cring.style.width='50px'; cring.style.height='50px'; cring.style.borderColor='rgba(0,212,255,.85)'; cdot.style.width='4px'; cdot.style.height='4px'; });
+  el.addEventListener('mouseleave', () => { cring.style.width='32px'; cring.style.height='32px'; cring.style.borderColor='rgba(0,212,255,.45)'; cdot.style.width='8px'; cdot.style.height='8px'; });
+});
+
+/* PARTICLES */
+const can = document.getElementById('pcanvas');
+const ctx = can.getContext('2d');
+let W, H;
+const resize = () => { W=can.width=innerWidth; H=can.height=innerHeight; };
+resize(); window.addEventListener('resize', resize);
+const PCOLS = ['rgba(14,165,233,','rgba(6,182,212,','rgba(124,58,237,','rgba(56,189,248,'];
+const pts = Array.from({length:80}, () => ({
+  x: Math.random()*innerWidth, y: Math.random()*innerHeight,
+  r: Math.random()*1.4+0.3, vx:(Math.random()-.5)*.3, vy:(Math.random()-.5)*.3,
+  col: PCOLS[Math.floor(Math.random()*PCOLS.length)],
+  a: Math.random()*.5+0.1, ph: Math.random()*Math.PI*2
+}));
+(function draw() {
+  ctx.clearRect(0,0,W,H);
+  pts.forEach(p => {
+    p.ph+=0.008; const a=Math.min(1,Math.max(0,p.a+Math.sin(p.ph)*.1));
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.col+a+')'; ctx.fill();
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+  });
+  for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++) {
+    const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
+    if(d<110){ ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y);
+      ctx.strokeStyle=`rgba(14,165,233,${.07*(1-d/110)})`; ctx.lineWidth=.5; ctx.stroke(); }
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* TYPING */
+const phrases = ['Product Experiences','AI-Native Products','Enterprise Solutions','User-Centric Features','Product Strategy','Full Stack Applications'];
+let pi=0,ci=0,del=false;
+const typer = document.getElementById('typer');
+function type() {
+  const ph=phrases[pi];
+  if(!del){ typer.textContent=ph.slice(0,++ci); if(ci===ph.length){del=true; setTimeout(type,1900); return;} setTimeout(type,62); }
+  else { typer.textContent=ph.slice(0,--ci); if(ci===0){del=false; pi=(pi+1)%phrases.length; setTimeout(type,380); return;} setTimeout(type,34); }
+}
+type();
+
+/* NAVBAR */
+const navbar = document.getElementById('nav');
+const hbg = document.getElementById('hbg');
+const navlist = document.getElementById('navlist');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('stuck', scrollY>50);
+  document.getElementById('btt').classList.toggle('show', scrollY>450);
+});
+hbg.addEventListener('click', () => { hbg.classList.toggle('open'); navlist.classList.toggle('open'); });
+document.querySelectorAll('.nl').forEach(a => a.addEventListener('click', () => { hbg.classList.remove('open'); navlist.classList.remove('open'); }));
+
+/* ACTIVE NAV */
+const secs = document.querySelectorAll('section[id]');
+const nas = document.querySelectorAll('.nl');
+new IntersectionObserver(entries => entries.forEach(e => {
+  if(e.isIntersecting) nas.forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id));
+}), {threshold:.4}).observe && secs.forEach(s => new IntersectionObserver(entries => entries.forEach(e => {
+  if(e.isIntersecting) nas.forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id));
+}), {threshold:.35}).observe(s));
+
+/* SCROLL REVEAL */
+const revObs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in'); revObs.unobserve(e.target);} }), {threshold:.1});
+document.querySelectorAll('.rv,.rvl,.rvr').forEach(el => revObs.observe(el));
+
+/* COUNTER */
+function counter(el) {
+  const t=parseInt(el.dataset.n), dur=1900, s=performance.now();
+  (function step(now){
+    const p=Math.min((now-s)/dur,1), e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(e*t);
+    if(p<1) requestAnimationFrame(step);
+  })(s);
+}
+new IntersectionObserver(entries => entries.forEach(e => {
+  if(e.isIntersecting){ e.target.querySelectorAll('[data-n]').forEach(counter); }
+}),{threshold:.5}).observe(document.querySelector('.hero-stats'));
+
+/* PARALLAX */
+window.addEventListener('scroll', () => {
+  const hg = document.querySelector('.hero-grid');
+  if(hg) hg.style.transform = `translateY(${scrollY*.18}px)`;
+});
+</script>
+</body>
 </html>
