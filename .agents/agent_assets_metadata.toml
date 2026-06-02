@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "1VAaEm_Hnh-SWeqds5KkY"
+uri = "file://artifacts/portfolio/src/assets/hero-bg.png"
+type = "image"
+title = "Hero abstract background"
+
+[[generated]]
+id = "7cYSgIK5UQNQ43-7BCiu7"
+uri = "file://artifacts/portfolio/src/assets/project-1.png"
+type = "image"
+title = "Project 1 SaaS Dashboard"
+
+[[generated]]
+id = "uEQq5eBLoAEy27fCY7cJA"
+uri = "file://artifacts/portfolio/src/assets/project-2.png"
+type = "image"
+title = "Project 2 Developer Tool"
+
+[[generated]]
+id = "jclj_01gIENITFURmbog3"
+uri = "file://artifacts/portfolio/src/assets/project-3.png"
+type = "image"
+title = "Project 3 Mobile App"
